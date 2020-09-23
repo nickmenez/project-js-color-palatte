@@ -1,0 +1,355 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    color: rgb(51, 51, 51);
+}
+button{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+path, i, svg{
+    pointer-events: none;
+}
+h1, h2, h3, h4, h5{
+    font-weight: 100;
+}
+.colors{
+    min-height: 80vh;
+    display: flex;
+    color: rgb(214, 214, 214);
+}
+.color{
+    height: 80vh;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    overflow: hidden;
+}
+
+.color h2{
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.sliders{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    background: #eee;
+    padding: 1rem;
+    width: 100%;
+    pointer-events: none;
+    transform: translateY(100px);
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+}
+.sliders.active{
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0px);
+}
+.sliders button{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    padding: 0.2rem 0.5rem;
+    font-weight: 300;
+    font-size: 1.2rem;
+    background: #f9f9f9;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    transition: all 0.3s ease-out;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      0 2px 2px rgba(0,0,0,0.3),
+      0 0 4px 1px rgba(0,0,0,0.2);
+    text-decoration: none;
+    text-shadow: 0 1px rgba(255,255,255,0.7);
+    cursor: pointer;
+    color: #333;
+}
+.sliders button:hover{
+    background: rgb(222, 222, 222);
+}
+.close-save,
+.close-library{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border:none;
+    background: rgb(73, 73, 73);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+.sliders span{
+    font-size: 1.2rem;
+    color: #222;
+}
+.controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.controls button{
+    width: 50px;
+    
+}
+.controls button:first-child{
+    margin-right: 20px;
+}
+.panel{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 20vh;
+    background: #eee;
+    border-top:1px solid #fff;
+}
+
+.panel button{
+    font-size: 1.2rem;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    background: #f9f9f9;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    transition: all 0.3s ease-out;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      0 2px 2px rgba(0,0,0,0.3),
+      0 0 4px 1px rgba(0,0,0,0.2);
+    text-decoration: none;
+    text-shadow: 0 1px rgba(255,255,255,0.7);
+    cursor: pointer;
+    color: #333;
+}
+.panel button:hover{
+    background: rgb(222, 222, 222);
+}
+.panel p{
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.library-panel,
+.generate-panel,
+.save-panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.adjust,
+.lock{
+    font-size: 2rem;
+    border:none;
+    background: none;
+    cursor: pointer;
+    margin: 2rem 0rem;
+}
+
+/* Slider Styles */
+input[type="range"]{
+    -webkit-appearance: none;
+    margin: 1rem 0rem;
+    width: 100%;
+    position: relative;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+input[type=range] {
+    height: 26px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+    border: 0;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    background: #eee;
+    cursor: pointer;
+    -webkit-appearance: none;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      0 2px 2px rgba(0,0,0,0.3),
+      0 0 4px 1px rgba(0,0,0,0.2);
+}
+input[type=range]::-moz-range-thumb {
+    border: 0;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    background: #eee;
+    cursor: pointer;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      0 2px 2px rgba(0,0,0,0.3),
+      0 0 4px 1px rgba(0,0,0,0.2);
+}
+input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    border: 0;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    background: #eee;
+    cursor: pointer;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      0 2px 2px rgba(0,0,0,0.3),
+      0 0 4px 1px rgba(0,0,0,0.2);
+}
+
+.copy-container,
+.save-container,
+.library-container{
+    position: fixed;
+    top:0%;
+    left: 0%;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.copy-container.active,
+.save-container.active,
+.library-container.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.copy-popup,
+.save-popup,
+.library-popup{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 2rem;
+    transition: transform 0.5s ease;
+    transform: translateY(-2rem);
+    min-width: 30%;
+    min-height: 30vh;
+}
+
+.copy-popup.active,
+.save-popup.active,
+.library-popup.active{
+    transform: translateY(0rem);
+}
+
+.copy-popup h4,
+.save-popup h4,
+.library-popup h4{
+    font-size: 2rem;
+    padding: 2rem;
+}
+
+.copy-popup h3{
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+
+.save-name{
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.close-save,
+.close-library{
+    border-radius: 1rem;
+    padding: 0.8rem 1rem;
+    top:0.5rem;
+    right: 0.5rem;
+}
+
+.submit-save{
+    margin: 2rem;
+    padding: 1rem 3rem;
+    background-color: rgb(60, 60, 92);
+    border: none;
+    border-radius: 1rem;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+.library-popup{
+    min-width: 40%;
+    padding: 1rem;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    max-height: 90vh;
+    height: 90vh;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.custom-palette{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 2rem;
+}
+
+.custom-palette h4{
+    flex:1;
+    font-size: 1.4rem;
+}
+
+.small-preview{
+    display: flex;
+    flex:1;
+}
+
+.small-preview div{
+    height: 5rem;
+    flex: 1;
+}
+
+.pick-palette{
+    height: 5rem;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    background-color: rgb(68, 68, 68);
+    color: rgb(255, 255, 255);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .colors{
+        height: 2000px;
+        display: flex;
+        flex-direction: column;  
+    }
+}
